@@ -6,12 +6,17 @@
   <link rel="stylesheet" href="/student/style.css">
 </head>
 <body>
-  <div class="t-box">
-    <h2 class="title">ข้อมูลการลงทะเบียน
-      <a class="no-border" href="/student/profile/applicant-info">รายละเอียด</a>
-    </h2>
-    <div id="registration-info"></div>
-  </div>
+  <main>
+    <div class="container">
+      <div class="t-box">
+        <h2 class="title">ข้อมูลการลงทะเบียน
+          <a class="no-border" href="/student/profile/applicant-info">รายละเอียด</a>
+        </h2>
+        <div id="registration-info"></div>
+      </div>
+
+    </div>
+  </main>
 
   <script>
     const user = JSON.parse(localStorage.getItem("userData"));
