@@ -6,6 +6,18 @@
   <link rel="stylesheet" href="/student/style.css">
 </head>
 <body>
+  <header>
+      <div class="logo">
+          <a href="/"><img src="/img/logo.png" alt="โลโก้"></a>
+      </div>
+      <nav class="main-menu">
+          <ul>
+              <li><a href="/student/profile/applicant-info"><i class="fa-solid fa-user"></i><span> ข้อมูลส่วนตัว</span></a></li>
+              <li><a href=""><i class="fa-solid fa-book"></i><span> การสมัครสอบ</span></a></li>
+              <li><a href="#" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i><span> ออกจากระบบ</span></a></li>
+          </ul>
+      </nav>            
+  </header>
   <main>
     <div class="container">
       <center><h1>การสมัคร</h1></center>
@@ -34,5 +46,13 @@
       <p><strong>ปีการศึกษา:</strong> ${user.schoolyear}</p>
     `;
   </script>
+  <script>
+    document.getElementById("logoutBtn").addEventListener("click", function(e) {
+      e.preventDefault(); // ป้องกันการ reload หน้า
+      localStorage.clear(); // ลบข้อมูลทั้งหมดจาก localStorage
+      window.location.href = "/student/index.html"; // กลับไปหน้า login
+    });
+  </script>
+
 </body>
 </html>
