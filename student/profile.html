@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>โปรไฟล์</title>
+</head>
+<body>
+  <h2>ข้อมูลโปรไฟล์</h2>
+  <div id="profile"></div>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("userData"));
+    if (!user) {
+      window.location.href = "index.html";
+    }
+
+    let profileHtml = "";
+    for (let key in user) {
+      profileHtml += `<p><strong>${key}</strong>: ${user[key]}</p>`;
+    }
+    document.getElementById("profile").innerHTML = profileHtml;
+  </script>
+</body>
+</html>
