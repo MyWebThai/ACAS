@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>โปรไฟล์</title>
+  <title>ข้อมูลการลงทะเบียน</title>
 </head>
 <body>
-  <h2>ข้อมูลโปรไฟล์</h2>
-  <div id="profile"></div>
+  <h2>ข้อมูลการลงทะเบียน</h2>
+  <div id="registration-info"></div>
 
   <script>
     const user = JSON.parse(localStorage.getItem("userData"));
@@ -14,11 +14,15 @@
       window.location.href = "index.html";
     }
 
-    let profileHtml = "";
-    for (let key in user) {
-      profileHtml += `<p><strong>${key}</strong>: ${user[key]}</p>`;
-    }
-    document.getElementById("profile").innerHTML = profileHtml;
+    const container = document.getElementById("registration-info");
+    container.innerHTML = `
+      <p><strong>ชื่อ:</strong> ${user["fname-th"]} ${user["lname-th"]}</p>
+      <p><strong>โรงเรียน:</strong> ${user.schoolname}</p>
+      <p><strong>จังหวัด:</strong> ${user.province}</p>
+      <p><strong>หลักสูตร:</strong> ${user.schoolcourse}</p>
+      <p><strong>ปีการศึกษา:</strong> ${user.schoolyear}</p>
+      <a href="/profile/applicant-info">รายละเอียด</a>
+    `;
   </script>
 </body>
 </html>
