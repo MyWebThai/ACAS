@@ -22,10 +22,13 @@ async function checkId() {
     localStorage.setItem("aid", inputAid);
 
     if (!user.password || user.password.trim() === "") {
+      // ไม่มีรหัสผ่าน → ไปกรอกข้อมูลใหม่
       window.location.href = "form.html";
     } else {
+      // มีรหัสผ่าน → แสดงช่องรหัสผ่านและปุ่ม login, ซ่อนปุ่มตรวจสอบ
       document.getElementById("passwordDiv").style.display = "block";
       document.getElementById("loginBtn").style.display = "inline-block";
+      document.getElementById("checkBtn").style.display = "none"; // ซ่อนปุ่มตรวจสอบ
     }
   } catch (err) {
     console.error("เกิดข้อผิดพลาดในการดึงข้อมูล:", err);
