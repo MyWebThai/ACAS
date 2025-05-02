@@ -1,9 +1,9 @@
 let currentUser = null;
 
 async function checkId() {
-  const inputId = document.getElementById('id').value.trim();
-  if (!inputId) {
-    alert("กรุณากรอกเลขประจำตัว (id)");
+  const inputAid = document.getElementById('id').value.trim();
+  if (!inputAid) {
+    alert("กรุณากรอกเลขประจำตัว (aid)");
     return;
   }
 
@@ -11,15 +11,15 @@ async function checkId() {
     const response = await fetch("https://script.google.com/macros/s/AKfycbzIH0e9L9trXFdeNAKefHuO4-yTG-jNbHFf_x0TVLFFNwQETMbqA5viMJt__fIFxXL92g/exec");
     const data = await response.json();
 
-    const user = data.find(item => item.id.toString() === inputId);
-    
+    const user = data.find(item => String(item?.aid) === inputAid);
+
     if (!user) {
       alert("ไม่พบผู้ใช้ในระบบ");
       return;
     }
 
     currentUser = user;
-    localStorage.setItem("id", inputId);
+    localStorage.setItem("aid", inputAid);
 
     if (!user.password || user.password.trim() === "") {
       window.location.href = "form.html";
