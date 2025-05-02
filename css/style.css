@@ -1,0 +1,110 @@
+/* style.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: CPN, sans-serif;
+}
+
+/* body {
+    
+} */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffb600;
+    padding: 10px 20px;
+    color: white;
+    position: fixed;
+    width: 100%;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.main-menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.main-menu li {
+    margin-left: 20px;
+}
+
+.main-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s ease-in-out;
+}
+
+.main-menu a:hover {
+    color: #004080;
+}
+
+.main-menu a i{
+    display: none;
+}
+
+@media (max-width: 780px) {
+    .main-menu a span {
+        display: none;
+    }
+
+    .main-menu a i {
+        font-size: 20px;
+        display: block;
+    }
+
+    .main-menu li {
+        margin-left: 40px;
+    }
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* เต็มความสูงของหน้าจอ */
+    text-align: center;
+    background-color: #f0f0f0; /* หรือพื้นหลังตามต้องการ */
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+}
+
+.hero h3 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: .6em .9em;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    background-image: linear-gradient(90deg,#6200ff,#ff005b 50%,#6200ff);
+    background-size: 300% 100%;
+    color: #fff;
+    font-weight: 700;
+    transition: all .4s ease-in-out;
+}
+
+.hero-btn:hover {
+    color: #fff;
+    background-position: 100% 0;
+    transform: scale(1.06);
+}
