@@ -6,14 +6,14 @@
 </head>
 <body>
   <h2>เพิ่มข้อมูล</h2>
-  <p>เลขประจำตัว (ID): <span id="idDisplay"></span></p>
+  <p>เลขประจำตัว (AID): <span id="idDisplay"></span></p>
   <input type="text" id="name" placeholder="ชื่อ"><br><br>
   <input type="password" id="password" placeholder="ตั้งรหัสผ่าน"><br><br>
   <button onclick="submitForm()">บันทึก</button>
 
-  <script>
-    const id = localStorage.getItem("id");
-    document.getElementById("idDisplay").innerText = id;
+  <script>>
+    const aid = localStorage.getItem("aid");
+    document.getElementById("idDisplay").innerText = aid;
 
     function submitForm() {
       alert("ระบบบันทึกข้อมูล (เชื่อมต่อ API ได้ในภายหลัง)");
