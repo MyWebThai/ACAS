@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>กรอกข้อมูล</title>
+</head>
+<body>
+  <h2>เพิ่มข้อมูลใหม่</h2>
+  <p>เลขประจำตัว: <span id="studentId"></span></p>
+  <!-- ตัวอย่าง: เพิ่ม input ที่ต้องการ -->
+  <input type="text" id="name" placeholder="ชื่อ"><br><br>
+  <input type="password" id="password" placeholder="สร้างรหัสผ่าน"><br><br>
+  <button onclick="submitForm()">บันทึก</button>
+
+  <script>
+    document.getElementById("studentId").innerText = localStorage.getItem("studentId");
+
+    function submitForm() {
+      // คุณสามารถเขียนให้ POST กลับไปที่ Google Sheet ผ่าน Apps Script ที่เปิดใช้งาน POST
+      alert("ส่งข้อมูลสำเร็จ (ยังไม่ได้เชื่อมกับ API จริง)");
+    }
+  </script>
+</body>
+</html>
