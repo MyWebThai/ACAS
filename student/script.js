@@ -1,38 +1,41 @@
 let currentUser = null;
 
 async function checkId() {
-  const studentId = document.getElementById('studentId').value.trim();
-  if (!studentId) {
-    alert("กรุณากรอกเลขประจำตัว");
+  const inputId = document.getElementById('id').value.trim();
+  if (!inputId) {
+    alert("กรุณากรอกเลขประจำตัว (id)");
     return;
   }
 
-  const response = await fetch("https://script.google.com/macros/s/AKfycbzIH0e9L9trXFdeNAKefHuO4-yTG-jNbHFf_x0TVLFFNwQETMbqA5viMJt__fIFxXL92g/exec");
-  const data = await response.json();
+  try {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbzIH0e9L9trXFdeNAKefHuO4-yTG-jNbHFf_x0TVLFFNwQETMbqA5viMJt__fIFxXL92g/exec");
+    const data = await response.json();
 
-  const user = data.find(item => item["เลขประจำตัว"] == studentId);
+    const user = data.find(item => item.id.toString() === inputId);
+    
+    if (!user) {
+      alert("ไม่พบผู้ใช้ในระบบ");
+      return;
+    }
 
-  if (!user) {
-    alert("ไม่พบผู้ใช้");
-    return;
-  }
+    currentUser = user;
+    localStorage.setItem("id", inputId);
 
-  currentUser = user;
-  localStorage.setItem("studentId", studentId);
-
-  if (!user["รหัสผ่าน"]) {
-    // ถ้ายังไม่มีรหัสผ่านให้ไปกรอกข้อมูล
-    window.location.href = "form.html";
-  } else {
-    // แสดงช่องกรอกรหัสผ่าน
-    document.getElementById("passwordDiv").style.display = "block";
-    document.getElementById("loginBtn").style.display = "inline-block";
+    if (!user.password || user.password.trim() === "") {
+      window.location.href = "form.html";
+    } else {
+      document.getElementById("passwordDiv").style.display = "block";
+      document.getElementById("loginBtn").style.display = "inline-block";
+    }
+  } catch (err) {
+    console.error("เกิดข้อผิดพลาดในการดึงข้อมูล:", err);
+    alert("ไม่สามารถโหลดข้อมูลผู้ใช้ได้");
   }
 }
 
 function login() {
-  const passwordInput = document.getElementById('password').value;
-  if (passwordInput === currentUser["รหัสผ่าน"]) {
+  const inputPassword = document.getElementById('password').value;
+  if (inputPassword === currentUser.password) {
     localStorage.setItem("userData", JSON.stringify(currentUser));
     window.location.href = "profile.html";
   } else {
