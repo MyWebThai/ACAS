@@ -141,3 +141,7 @@ i[class^=i-] {
 .i-no {
   background-image: url('/img/i/i-no.svg');
 }
+
+.a-row input {
+    margin-bottom: 0;
+}
