@@ -182,3 +182,26 @@ ul.r-choose li {
     cursor: pointer;
     user-select: none;
 }
+
+
+button:hover {
+    color: #fff;
+    background-position: 100% 0;
+}
+button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: .6em .9em;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    background-image: linear-gradient(90deg, #6200ff, #ff005b 50%, #6200ff);
+    background-size: 300% 100%;
+    color: #fff;
+    font-weight: 700;
+    transition: all .4s ease-in-out;
+    outline: 0;
+    border: 0;
+    width: 100%;
+}
