@@ -34,7 +34,7 @@
   </main>
   <script>
     const aid = localStorage.getItem("aid");
-    document.getElementById("idDisplay").innerText = aid;
+    document.getElementById("aidInput").value = aid || "";
 
     function submitForm() {
       alert("ระบบบันทึกข้อมูล (เชื่อมต่อ API ได้ในภายหลัง)");
