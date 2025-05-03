@@ -13,13 +13,15 @@ async function checkId() {
 
     const user = data.find(item => String(item?.aid) === inputAid);
 
+    localStorage.setItem("aid", inputAid);
+
     if (!user) {
-      alert("ไม่พบผู้ใช้ในระบบ");
+      // ถ้าไม่เจอ aid → ไปหน้า form.html ทันที
+      window.location.href = "form.html";
       return;
     }
 
     currentUser = user;
-    localStorage.setItem("aid", inputAid);
 
     if (!user.password || user.password.trim() === "") {
       // ไม่มีรหัสผ่าน → ไปกรอกข้อมูลใหม่
@@ -28,7 +30,7 @@ async function checkId() {
       // มีรหัสผ่าน → แสดงช่องรหัสผ่านและปุ่ม login, ซ่อนปุ่มตรวจสอบ
       document.getElementById("passwordDiv").style.display = "contents";
       document.getElementById("loginBtn").style.display = "inline-block";
-      document.getElementById("checkBtn").style.display = "none"; // ซ่อนปุ่มตรวจสอบ
+      document.getElementById("checkBtn").style.display = "none";
     }
   } catch (err) {
     console.error("เกิดข้อผิดพลาดในการดึงข้อมูล:", err);
