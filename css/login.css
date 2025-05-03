@@ -11,3 +11,15 @@ body { font-family: CPN, sans-serif; }
 @media (min-width: 992px) { .container { max-width: 960px; } } 
 @media (min-width: 1200px) { .container { max-width: 1140px; } } 
 @media (min-width: 1400px) { .container { max-width: 1320px; } }
+
+input {
+    width: -webkit-fill-available;
+    border: 2px solid #d5d5d7;
+    transition: .3s ease;
+    outline: none;
+    font-size: 1.125em;
+    padding: .474em .5em .36em;
+    line-height: 1.4;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
