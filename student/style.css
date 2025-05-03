@@ -172,3 +172,8 @@ ul.r-1 li{
 ul#tcasChoices {
     text-align: left;
 }
+
+.content>h4 {
+    color: #1a477f;
+    margin: 4px 0;
+}
