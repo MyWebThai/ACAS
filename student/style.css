@@ -95,11 +95,11 @@ a {
 }
 
 h3.r-1 {
-    color: #ffb600;
+    background: #ffb600;
+    color: #fff;
     position: relative;
     padding: 12px 16px;
-    display: flex
-;
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
