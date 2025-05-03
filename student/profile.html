@@ -146,15 +146,13 @@
         li.addEventListener("click", () => {
           // ลบสีเดิม
           Array.from(tcasUl.children).forEach(li => {
-            li.style.backgroundColor = "";
             li.style.color = "#000";
           });
     
           // ตั้งค่า value
           portfolioInput.value = `u-${item.index}`;
           // ใส่สีใหม่
-          li.style.backgroundColor = "#27ae60";
-          li.style.color = "#fff";
+          li.style.color = "#27ae60";
         });
     
         tcasUl.appendChild(li);
