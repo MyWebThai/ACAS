@@ -205,3 +205,8 @@ button {
     border: 0;
     width: 100%;
 }
+
+.r-choose {
+    background: #fff8ea;
+    padding: 20px;
+}
