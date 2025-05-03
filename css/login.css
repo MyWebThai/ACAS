@@ -47,8 +47,17 @@ button {
     width: 50%;
 }
 
+.row {
+    display: flex;
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 @media (min-width: 768px) {
-    .row {
+    .row input {
         width: 50%;
     }
 }
