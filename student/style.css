@@ -103,3 +103,21 @@ h3.r-1 {
     justify-content: space-between;
     align-items: center;
 }
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.label {
+    font-weight: bold;
+    color: #34495e;
+}
+
+.date {
+    color: #27ae60;
+}
