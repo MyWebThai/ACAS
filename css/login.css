@@ -65,3 +65,12 @@ button {
         width: 50%;
     }
 }
+
+center h2 {
+    font-weight: bold;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 6px;
+}
