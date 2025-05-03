@@ -5,11 +5,12 @@
   <title>กรอกข้อมูล</title>
   <link rel="stylesheet" href="https://slw-system.pages.dev/assets/css/font-face.css">
   <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
   <main style=" margin-top: 78px; ">
     <div class="container">
-      <center><h2>เพิ่มข้อมูล</h2></center>
+      <center><h2>ลงทะเบียน • เข้าสู่ระบบ</h2></center>
       <div class="a-row"> 
         <div style="display:grid;">
           <label class="has-meta">
@@ -18,17 +19,71 @@
           </label>
           <input type="text" name="aid" id="aidInput" disabled>
         </div>
+        
         <div style="display:grid;">
           <label class="has-meta">
-            <span>เลขประจำตัว</span>
-            <span class="meta">(เลขประจำตัวประชาชน)</span>
+            <span>อีเมล</span>
           </label>
-          <input type="text" id="name" placeholder="ชื่อ">
+          <input type="text" id="email" placeholder="กรอกอีเมล เช่น arlingtontest@gmail.com">
         </div>
-        <input type="password" id="password" placeholder="ตั้งรหัสผ่าน">
+        
+        <div style="display:grid;">
+          <label class="has-meta">
+            <span>คำนำหน้า</span>
+          </label>
+          <input type="text" id="prefix" placeholder="นาย/นาง/นางสาว">
+        </div>
+        
+        <div style="display:grid;">
+          <label class="has-meta">
+            <span>ชื่อ</span>
+          </label>
+          <input type="text" id="prefix" placeholder="กรอกชื่อจริง ไม่ต้องใส่คำนำหน้า">
+        </div>
+        
+        <div style="display:grid;">
+          <label class="has-meta">
+            <span>นามสกุล</span>
+          </label>
+          <input type="text" id="prefix" placeholder="กรอกนามสกุล">
+        </div>
+        
+        <div style="display:grid;">
+          <label class="has-meta">
+            <span>ชื่อภาษาอังกฤษ</span>
+          </label>
+          <input type="text" id="prefix" placeholder="กรอกชื่อภาษาอังกฤษ ไม่ต้องใส่คำนำหน้า">
+        </div>
+        
+        <div style="display:grid;">
+          <label class="has-meta">
+            <span>นามสกุลภาษาอังกฤษ</span>
+          </label>
+          <input type="text" id="prefix" placeholder="กรอกนามสกุลภาษาอังกฤษ">
+        </div>
+        
+        <div style="display:grid;">
+          <label>รหัสผ่าน</label>
+          <input type="password" placeholder="กรอกรหัสผ่าน">
+          <small class="remark">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: -4px;"><path d="M9 1.5C4.8645 1.5 1.5 4.8645 1.5 9C1.5 13.1355 4.8645 16.5 9 16.5C13.1355 16.5 16.5 13.1355 16.5 9C16.5 4.8645 13.1355 1.5 9 1.5ZM9.5625 12.5625C9.5625 12.873 9.3105 13.125 9 13.125C8.6895 13.125 8.4375 12.873 8.4375 12.5625V8.4375C8.4375 8.127 8.6895 7.875 9 7.875C9.3105 7.875 9.5625 8.127 9.5625 8.4375V12.5625ZM9 6.75C8.58562 6.75 8.25 6.41438 8.25 6C8.25 5.58562 8.58562 5.25 9 5.25C9.41438 5.25 9.75 5.58562 9.75 6C9.75 6.41438 9.41438 6.75 9 6.75Z" fill="#1A477F"></path></svg>
+            ตัวอักษรอักขระพิเศษ 
+            <b> !@#$%^&amp;*()_+|~-=\`{}[]:”;'&lt;&gt;?,./</b> มีหรือไม่มีก็ได้
+          </small>
+        </div>
+
+        <div>
+          <ul class="small">
+            <li><i class="i-no"></i> จำนวนไม่น้อยกว่า 8 หลัก</li>
+            <li><i class="i-no"></i> ตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ A - Z อย่างน้อย 1 ตัว</li>
+            <li><i class="i-no"></i> ตัวอักษรภาษาอังกฤษพิมพ์เล็ก a - z อย่างน้อย 1 ตัว</li>
+            <li><i class="i-no"></i> ตัวเลข 0 - 9 อย่างน้อย 1 ตัว</li>
+          </ul>
+        </div>
+        
       </div>
       <center class="action">
-        <button onclick="submitForm()">บันทึก</button>
+        <button onclick="submitForm()">ลงทะเบียน</button>
       </center>
     </div>
   </main>
