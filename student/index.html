@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel="stylesheet" href="https://slw-system.pages.dev/assets/css/font-face.css">
-  <style>body { font-family: CPN, sans-serif; }</style>
+  <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-  <h2>เข้าสู่ระบบ</h2>
-  <input type="text" id="id" placeholder="กรอกเลขประจำตัว">
-  <div id="passwordDiv" style="display: none;">
-    <input type="password" id="password" placeholder="รหัสผ่าน">
+  <div class="container">
+    <h2>เข้าสู่ระบบ</h2>
+    <input type="text" id="id" placeholder="กรอกเลขประจำตัว">
+    <div id="passwordDiv" style="display: none;">
+      <input type="password" id="password" placeholder="รหัสผ่าน">
+    </div>
+    
+    <center>
+      <button id="checkBtn" onclick="checkId()">ตรวจสอบ</button>
+      <button id="loginBtn" onclick="login()" style="display: none;">เข้าสู่ระบบ</button>
+    </center>
   </div>
-  
-  <button id="checkBtn" onclick="checkId()">ตรวจสอบ</button>
-  <button id="loginBtn" onclick="login()" style="display: none;">เข้าสู่ระบบ</button>
 
   <script src="script.js"></script>
 </body>
