@@ -134,9 +134,12 @@
         const item = tcasData[selectedIndex];
   
         // สร้าง h3 ที่แสดงข้อความยืนยัน
-        const h3 = document.createElement("h3");
-        h3.className = "r-1";
-        h3.innerHTML = `รอบ 1 Portfolio <span id="Verify1">${verifyStatus}</span>`;
+        const h3 = document.querySelector("h3.r-1");
+        const verifySpan = h3?.querySelector("#Verify1");
+        if (verifySpan) {
+          verifySpan.textContent = verifyStatus;
+        }
+
   
         // สร้าง li ที่แสดงข้อมูล TCAS ที่เลือก
         const li = document.createElement("li");
