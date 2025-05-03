@@ -44,7 +44,7 @@ button {
     transition: all .4s ease-in-out;
     outline: 0;
     border: 0;
-    width: 100%;
+    width: 50%;
 }
 
 @media (min-width: 768px) {
