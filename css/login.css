@@ -49,9 +49,7 @@ button {
 
 .row {
     display: flex;
-    width: calc(100% + 20px);
-    margin-left: -10px;
-    margin-right: -10px;
+    width: 100%;
     flex-wrap: wrap;
     justify-content: center;
 }
