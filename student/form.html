@@ -10,91 +10,157 @@
   <main style=" margin-top: 78px; ">
     <div class="container">
       <center><h2>ลงทะเบียน • เข้าสู่ระบบ</h2></center>
-      <div class="a-row"> 
-        <div style="display:grid;width: calc(100% - 20px);" class="required">
-          <label class="has-meta">
-            <span>เลขประจำตัว</span>
-            <span class="meta">(เลขประจำตัวประชาชน)</span>
-          </label>
-          <input type="text" name="aid" id="aidInput" disabled>
+      <form id="form" method="POST">
+        <div class="a-row"> 
+          <div style="display:grid;width: calc(100% - 20px);" class="required">
+            <label class="has-meta">
+              <span>เลขประจำตัว</span>
+              <span class="meta">(เลขประจำตัวประชาชน)</span>
+            </label>
+            <input type="text" name="aid" id="aidInput" disabled>
+          </div>
+          
+          <div style="display:grid;" class="required">
+            <label class="has-meta">
+              <span>อีเมล</span>
+            </label>
+            <input type="text" id="email" name="email" placeholder="กรอกอีเมล เช่น arlingtontest@gmail.com" required>
+          </div>
+          
+          <div style="display:grid;" class="required">
+            <label class="has-meta">
+              <span>คำนำหน้า</span>
+            </label>
+            <input type="text" id="prefix" name="prefix" placeholder="นาย/นาง/นางสาว" required>
+          </div>
+          
+          <div style="display:grid;" class="required">
+            <label class="has-meta">
+              <span>ชื่อ</span>
+            </label>
+            <input type="text" id="prefix" name="fname-th" placeholder="กรอกชื่อจริง ไม่ต้องใส่คำนำหน้า" required>
+          </div>
+          
+          <div style="display:grid;" class="required">
+            <label class="has-meta">
+              <span>นามสกุล</span>
+            </label>
+            <input type="text" id="prefix" name="lname-th" placeholder="กรอกนามสกุล" required>
+          </div>
+          
+          <div style="display:grid;">
+            <label class="has-meta">
+              <span>ชื่อภาษาอังกฤษ</span>
+            </label>
+            <input type="text" id="prefix" name="fname-en" placeholder="กรอกชื่อภาษาอังกฤษ ไม่ต้องใส่คำนำหน้า">
+          </div>
+          
+          <div style="display:grid;">
+            <label class="has-meta">
+              <span>นามสกุลภาษาอังกฤษ</span>
+            </label>
+            <input type="text" id="prefix" name="lname-en" placeholder="กรอกนามสกุลภาษาอังกฤษ">
+          </div>
+          
+          <div style="display:grid;" class="required">
+            <label>
+              <span>รหัสผ่าน</span>
+            </label>
+            <input type="password" name="password" placeholder="กรอกรหัสผ่าน" required>
+            <small class="remark">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: -4px;"><path d="M9 1.5C4.8645 1.5 1.5 4.8645 1.5 9C1.5 13.1355 4.8645 16.5 9 16.5C13.1355 16.5 16.5 13.1355 16.5 9C16.5 4.8645 13.1355 1.5 9 1.5ZM9.5625 12.5625C9.5625 12.873 9.3105 13.125 9 13.125C8.6895 13.125 8.4375 12.873 8.4375 12.5625V8.4375C8.4375 8.127 8.6895 7.875 9 7.875C9.3105 7.875 9.5625 8.127 9.5625 8.4375V12.5625ZM9 6.75C8.58562 6.75 8.25 6.41438 8.25 6C8.25 5.58562 8.58562 5.25 9 5.25C9.41438 5.25 9.75 5.58562 9.75 6C9.75 6.41438 9.41438 6.75 9 6.75Z" fill="#1A477F"></path></svg>
+              ตัวอักษรอักขระพิเศษ 
+              <b> !@#$%^&amp;*()_+|~-=\`{}[]:”;'&lt;&gt;?,./</b> มีหรือไม่มีก็ได้
+            </small>
+          </div>
+  
+          <div>
+            <ul class="small">
+              <li><i class="i-no"></i> จำนวนไม่น้อยกว่า 8 หลัก</li>
+              <li><i class="i-no"></i> ตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ A - Z อย่างน้อย 1 ตัว</li>
+              <li><i class="i-no"></i> ตัวอักษรภาษาอังกฤษพิมพ์เล็ก a - z อย่างน้อย 1 ตัว</li>
+              <li><i class="i-no"></i> ตัวเลข 0 - 9 อย่างน้อย 1 ตัว</li>
+            </ul>
+          </div>
+          
         </div>
+        <center class="action">
+          
+          <button type="submit" id="submit-button" >ลงทะเบียน</button>
+        </center>
         
-        <div style="display:grid;" class="required">
-          <label class="has-meta">
-            <span>อีเมล</span>
-          </label>
-          <input type="text" id="email" name="email" placeholder="กรอกอีเมล เช่น arlingtontest@gmail.com" required>
-        </div>
-        
-        <div style="display:grid;" class="required">
-          <label class="has-meta">
-            <span>คำนำหน้า</span>
-          </label>
-          <input type="text" id="prefix" name="prefix" placeholder="นาย/นาง/นางสาว" required>
-        </div>
-        
-        <div style="display:grid;" class="required">
-          <label class="has-meta">
-            <span>ชื่อ</span>
-          </label>
-          <input type="text" id="prefix" name="fname-th" placeholder="กรอกชื่อจริง ไม่ต้องใส่คำนำหน้า" required>
-        </div>
-        
-        <div style="display:grid;" class="required">
-          <label class="has-meta">
-            <span>นามสกุล</span>
-          </label>
-          <input type="text" id="prefix" name="lname-th" placeholder="กรอกนามสกุล" required>
-        </div>
-        
-        <div style="display:grid;">
-          <label class="has-meta">
-            <span>ชื่อภาษาอังกฤษ</span>
-          </label>
-          <input type="text" id="prefix" name="fname-en" placeholder="กรอกชื่อภาษาอังกฤษ ไม่ต้องใส่คำนำหน้า">
-        </div>
-        
-        <div style="display:grid;">
-          <label class="has-meta">
-            <span>นามสกุลภาษาอังกฤษ</span>
-          </label>
-          <input type="text" id="prefix" name="lname-en" placeholder="กรอกนามสกุลภาษาอังกฤษ">
-        </div>
-        
-        <div style="display:grid;" class="required">
-          <label>
-            <span>รหัสผ่าน</span>
-          </label>
-          <input type="password" name="password" placeholder="กรอกรหัสผ่าน" required>
-          <small class="remark">
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: -4px;"><path d="M9 1.5C4.8645 1.5 1.5 4.8645 1.5 9C1.5 13.1355 4.8645 16.5 9 16.5C13.1355 16.5 16.5 13.1355 16.5 9C16.5 4.8645 13.1355 1.5 9 1.5ZM9.5625 12.5625C9.5625 12.873 9.3105 13.125 9 13.125C8.6895 13.125 8.4375 12.873 8.4375 12.5625V8.4375C8.4375 8.127 8.6895 7.875 9 7.875C9.3105 7.875 9.5625 8.127 9.5625 8.4375V12.5625ZM9 6.75C8.58562 6.75 8.25 6.41438 8.25 6C8.25 5.58562 8.58562 5.25 9 5.25C9.41438 5.25 9.75 5.58562 9.75 6C9.75 6.41438 9.41438 6.75 9 6.75Z" fill="#1A477F"></path></svg>
-            ตัวอักษรอักขระพิเศษ 
-            <b> !@#$%^&amp;*()_+|~-=\`{}[]:”;'&lt;&gt;?,./</b> มีหรือไม่มีก็ได้
-          </small>
-        </div>
-
-        <div>
-          <ul class="small">
-            <li><i class="i-no"></i> จำนวนไม่น้อยกว่า 8 หลัก</li>
-            <li><i class="i-no"></i> ตัวอักษรภาษาอังกฤษพิมพ์ใหญ่ A - Z อย่างน้อย 1 ตัว</li>
-            <li><i class="i-no"></i> ตัวอักษรภาษาอังกฤษพิมพ์เล็ก a - z อย่างน้อย 1 ตัว</li>
-            <li><i class="i-no"></i> ตัวเลข 0 - 9 อย่างน้อย 1 ตัว</li>
-          </ul>
-        </div>
-        
-      </div>
-      <center class="action">
-        <button onclick="submitForm()">ลงทะเบียน</button>
-      </center>
+      </form>
     </div>
+  </main>
+  <main style=" display: none; ">
+      <div id="message" style=" display: none; margin: 20px; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; border-color: aquamarine; "></div>
   </main>
   <script>
     const aid = localStorage.getItem("aid");
     document.getElementById("aidInput").value = aid || "";
-
-    function submitForm() {
-      alert("ระบบบันทึกข้อมูล (เชื่อมต่อ API ได้ในภายหลัง)");
-    }
+    
+    document.getElementById("form").addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent the default form submission
+      document.getElementById("message").textContent = "กำลังบันทึก...";
+      document.getElementById("message").style.display = "block";
+      document.getElementById("submit-button").disabled = true;
+    
+      // Collect the form data
+      var formData = new FormData(this);
+      var keyValuePairs = [];
+    
+      for (var pair of formData.entries()) {
+        keyValuePairs.push(pair[0] + "=" + encodeURIComponent(pair[1]));
+      }
+    
+      // ดึง IP จาก API
+      fetch("https://api.ipify.org?format=json")
+        .then((res) => res.json())
+        .then((data) => {
+          const ip = data.ip;
+          keyValuePairs.push("ip=" + ip); // เพิ่ม IP เข้าไปในข้อมูล
+    
+          var formDataString = keyValuePairs.join("&");
+    
+          // ส่งไปยัง Google Apps Script
+          return fetch(
+            "https://script.google.com/macros/s/AKfycbw3GM2cp7MNsNVTCPvJGj1xbCbYKqeRiBGDXTrnohgOKHLvCw1Q089Hwz55ynD4nTzyOA/exec",
+            {
+              redirect: "follow",
+              method: "POST",
+              body: formDataString,
+              headers: {
+                "Content-Type": "text/plain;charset=utf-8",
+              },
+            }
+          );
+        })
+        .then(function (response) {
+          if (response) {
+            return response;
+          } else {
+            throw new Error("Failed to submit the form.");
+          }
+        })
+        .then(function () {
+          document.getElementById("message").textContent = "Data submitted successfully!";
+          document.getElementById("message").style.display = "block";
+          document.getElementById("message").style.backgroundColor = "green";
+          document.getElementById("message").style.color = "beige";
+          document.getElementById("submit-button").disabled = false;
+          document.getElementById("form").reset();
+    
+          setTimeout(function () {
+            // window.location.href = "/election/hrz-election";
+            window.location.href = "/election/hre-finish";
+          }, 500);
+        })
+        .catch(function (error) {
+          console.error(error);
+          document.getElementById("message").textContent = "An error occurred while submitting the form.";
+          document.getElementById("message").style.display = "block";
+        });
+    });
   </script>
 </body>
 </html>
