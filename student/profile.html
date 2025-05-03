@@ -54,16 +54,22 @@
                   <b id="seconds"></b>วินาที
                 </li>
               </ul>
-              <ul class="r-choose" id="tcasChoices" style="display: none;">
-                <input type="hidden" name="Portfolio">
-              </ul>
+              <form id="form-port" method="POST">
+                <ul class="r-choose" id="tcasChoices" style="display: none;">
+                  <input type="hidden" name="Portfolio">
+                  <input type="hidden" name="aid" id="aidInput">
+                </ul>
+                <button type="submit" id="submit-portfolio">ยืนยันสิทธิ์</button>
+              </form>
           </div>
         </div>
       </div>
 
     </div>
   </main>
-
+  <main style=" display: none; ">
+      <div id="message" style=" display: none; "></div>
+  </main>
   <script>
     const user = JSON.parse(localStorage.getItem("userData"));
     if (!user) {
@@ -166,5 +172,71 @@
 
   </script>
 
+
+
+  
+  <script>
+      const aid = localStorage.getItem("aid");
+      document.getElementById("aidInput").value = aid || "";
+  
+      document.getElementById("form-port").addEventListener("submit", function (e) {
+        e.preventDefault();
+  
+        document.getElementById("message").textContent = "กำลังบันทึก...";
+        document.getElementById("message").style.display = "block";
+        document.getElementById("submit-portfolio").disabled = true;
+  
+        const formData = new FormData(this);
+        formData.append("aid", aid); // เพิ่ม aid เข้า FormData หากมี
+  
+        const keyValuePairs = [];
+        for (const pair of formData.entries()) {
+          keyValuePairs.push(pair[0] + "=" + encodeURIComponent(pair[1]));
+        }
+  
+        // ดึง IP address
+        fetch("https://api.ipify.org?format=json")
+          .then((res) => res.json())
+          .then((data) => {
+            const ip = data.ip;
+            keyValuePairs.push("ip=" + ip);
+            const formDataString = keyValuePairs.join("&");
+  
+            return fetch(
+              "https://script.google.com/macros/s/AKfycbxoH1FqaQea8DQLs35ZnlZxZTtxYvEri4-SYI4sybWZbp9DUlsT3GSUAvQ85n8PhZcZ/exec",
+              {
+                redirect: "follow",
+                method: "POST",
+                body: formDataString,
+                headers: {
+                  "Content-Type": "text/plain;charset=utf-8",
+                },
+              }
+            );
+          })
+          .then((response) => {
+            if (response.ok) return response;
+            else throw new Error("Failed to submit the form.");
+          })
+          .then(() => {
+            document.getElementById("message").textContent = "ส่งข้อมูลเรียบร้อยแล้ว!";
+            document.getElementById("message").style.backgroundColor = "green";
+            document.getElementById("message").style.color = "white";
+            document.getElementById("submit-button").disabled = false;
+            document.getElementById("form").reset();
+  
+            setTimeout(() => {
+              window.location.href = "/student/";
+            }, 500);
+          })
+          .catch((error) => {
+            console.error(error);
+            document.getElementById("message").textContent = "เกิดข้อผิดพลาดในการส่งข้อมูล!";
+            document.getElementById("message").style.backgroundColor = "red";
+            document.getElementById("message").style.color = "white";
+            document.getElementById("message").style.display = "block";
+          });
+      });
+    </script>
 </body>
 </html>
