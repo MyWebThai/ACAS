@@ -17,7 +17,7 @@
               <span>เลขประจำตัว</span>
               <span class="meta">(เลขประจำตัวประชาชน)</span>
             </label>
-            <input type="text" name="aid" id="aidInput" disabled>
+            <input type="text" name="aid" id="aidInput" readonly>
           </div>
           
           <div style="display:grid;" class="required">
@@ -95,34 +95,33 @@
   <main style=" display: none; ">
       <div id="message" style=" display: none; margin: 20px; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; border-color: aquamarine; "></div>
   </main>
-  <script>
+    <script>
     const aid = localStorage.getItem("aid");
     document.getElementById("aidInput").value = aid || "";
-    
+
     document.getElementById("form").addEventListener("submit", function (e) {
-      e.preventDefault(); // Prevent the default form submission
+      e.preventDefault();
+
       document.getElementById("message").textContent = "กำลังบันทึก...";
       document.getElementById("message").style.display = "block";
       document.getElementById("submit-button").disabled = true;
-    
-      // Collect the form data
-      var formData = new FormData(this);
-      var keyValuePairs = [];
-    
-      for (var pair of formData.entries()) {
+
+      const formData = new FormData(this);
+      formData.append("aid", aid); // เพิ่ม aid เข้า FormData หากมี
+
+      const keyValuePairs = [];
+      for (const pair of formData.entries()) {
         keyValuePairs.push(pair[0] + "=" + encodeURIComponent(pair[1]));
       }
-    
-      // ดึง IP จาก API
+
+      // ดึง IP address
       fetch("https://api.ipify.org?format=json")
         .then((res) => res.json())
         .then((data) => {
           const ip = data.ip;
-          keyValuePairs.push("ip=" + ip); // เพิ่ม IP เข้าไปในข้อมูล
-    
-          var formDataString = keyValuePairs.join("&");
-    
-          // ส่งไปยัง Google Apps Script
+          keyValuePairs.push("ip=" + ip);
+          const formDataString = keyValuePairs.join("&");
+
           return fetch(
             "https://script.google.com/macros/s/AKfycbw3GM2cp7MNsNVTCPvJGj1xbCbYKqeRiBGDXTrnohgOKHLvCw1Q089Hwz55ynD4nTzyOA/exec",
             {
@@ -135,29 +134,26 @@
             }
           );
         })
-        .then(function (response) {
-          if (response) {
-            return response;
-          } else {
-            throw new Error("Failed to submit the form.");
-          }
+        .then((response) => {
+          if (response.ok) return response;
+          else throw new Error("Failed to submit the form.");
         })
-        .then(function () {
-          document.getElementById("message").textContent = "Data submitted successfully!";
-          document.getElementById("message").style.display = "block";
+        .then(() => {
+          document.getElementById("message").textContent = "ส่งข้อมูลเรียบร้อยแล้ว!";
           document.getElementById("message").style.backgroundColor = "green";
-          document.getElementById("message").style.color = "beige";
+          document.getElementById("message").style.color = "white";
           document.getElementById("submit-button").disabled = false;
           document.getElementById("form").reset();
-    
-          setTimeout(function () {
-            // window.location.href = "/election/hrz-election";
+
+          setTimeout(() => {
             window.location.href = "/student/";
           }, 500);
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.error(error);
-          document.getElementById("message").textContent = "An error occurred while submitting the form.";
+          document.getElementById("message").textContent = "เกิดข้อผิดพลาดในการส่งข้อมูล!";
+          document.getElementById("message").style.backgroundColor = "red";
+          document.getElementById("message").style.color = "white";
           document.getElementById("message").style.display = "block";
         });
     });
