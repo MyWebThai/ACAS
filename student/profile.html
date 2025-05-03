@@ -239,7 +239,11 @@
         recruitingElement.style.display = "none";
       }
     }
-
+      document.getElementById("logoutBtn").addEventListener("click", function(e) {
+        e.preventDefault(); // ป้องกันการ reload หน้า
+        localStorage.clear(); // ลบข้อมูลทั้งหมดจาก localStorage
+        window.location.href = "/index.html"; // กลับไปหน้า login
+      });
   </script>
 </body>
 </html>
