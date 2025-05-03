@@ -56,12 +56,24 @@ button {
     justify-content: center;
 }
 
+.a-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 @media (min-width: 768px) {
     .row input {
         width: 50%;
     }
 }
 
+@media (min-width: 768px) {
+    .a-row input {
+        width: 50%;
+    }
+}
 @media (min-width: 768px) {
     .action button {
         width: 50%;
