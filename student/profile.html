@@ -74,7 +74,7 @@
   <script>
     const userData = JSON.parse(localStorage.getItem("userData"));
     if (!userData) window.location.href = "index.html";
-
+  
     // แสดงข้อมูลผู้สมัคร
     document.getElementById("registration-info").innerHTML = `
       <p><strong>ชื่อ:</strong> ${userData["fname-th"]} ${userData["lname-th"]}</p>
@@ -83,7 +83,7 @@
       <p><strong>หลักสูตร:</strong> ${userData.schoolcourse}</p>
       <p><strong>ปีการศึกษา:</strong> ${userData.schoolyear}</p>
     `;
-
+  
     // Countdown
     const targetDate = new Date('2025-05-08T00:00:00');
     function updateCountdown() {
@@ -105,7 +105,7 @@
     }
     const countdownInterval = setInterval(updateCountdown, 1000);
     updateCountdown();
-
+  
     // TCAS Options
     const tcasUl = document.getElementById("tcasChoices");
     const portfolioInput = document.querySelector('input[name="Portfolio"]');
@@ -119,18 +119,26 @@
       project: userData[`TCAS1-project${i}`],
       index: i
     }));
-
+  
     const verifyStatus = userData?.Verify1?.trim();
     const selectedPortfolio = userData?.Portfolio?.toLowerCase();
     const contentDiv = document.querySelector(".content");
     const formPort = document.getElementById("form-port");
-
+  
     if (verifyStatus === "ยืนยันสิทธิ์เรียบร้อยแล้ว") {
-      formPort.style.display = "none";
-      tcasUl.innerHTML = "";
-      const selectedIndex = { U1: 0, U2: 1, U3: 2 }[selectedPortfolio];
+      contentDiv.style.display = "none"; // ซ่อน content เดิม
+      formPort.style.display = "none"; // ซ่อนฟอร์มส่งข้อมูล
+      const selectedIndex = { u1: 0, u2: 1, u3: 2 }[selectedPortfolio];
+  
       if (selectedIndex !== undefined && tcasData[selectedIndex]) {
         const item = tcasData[selectedIndex];
+  
+        // สร้าง h3 ที่แสดงข้อความยืนยัน
+        const h3 = document.createElement("h3");
+        h3.className = "r-1";
+        h3.innerHTML = `รอบ 1 Portfolio <span id="Verify1">${verifyStatus}</span>`;
+  
+        // สร้าง li ที่แสดงข้อมูล TCAS ที่เลือก
         const li = document.createElement("li");
         li.style.color = "rgb(39, 174, 96)";
         li.innerHTML = `
@@ -140,15 +148,20 @@
           ${item.course || ""}<br>
           ${item.project || ""}
         `;
-        tcasUl.appendChild(li);
-        tcasUl.style.display = "block";
-
-        const h3 = document.createElement("h3");
-        h3.className = "r-1";
-        h3.innerHTML = `รอบ 1 Portfolio <span class="verify-result">${verifyStatus}</span>`;
-        contentDiv.innerHTML = "";
-        contentDiv.appendChild(h3);
-        contentDiv.appendChild(tcasUl);
+  
+        // สร้าง ul ใหม่ใส่ li นี้
+        const newUl = document.createElement("ul");
+        newUl.className = "r-choose";
+        newUl.appendChild(li);
+  
+        // ใส่ h3 และ ul เข้า content ที่แสดงผล
+        const newContent = document.createElement("div");
+        newContent.className = "content";
+        newContent.appendChild(h3);
+        newContent.appendChild(newUl);
+  
+        // แสดงผลบนหน้า
+        document.getElementById("round").appendChild(newContent);
       }
     } else {
       tcasData.forEach(item => {
@@ -173,27 +186,27 @@
         tcasUl.style.display = "block";
       }
     }
-
+  
     // Submit form
     document.getElementById("form-port").addEventListener("submit", function (e) {
       e.preventDefault();
       document.getElementById("message").textContent = "กำลังบันทึก...";
       document.getElementById("message").style.display = "block";
       document.getElementById("submit-portfolio").disabled = true;
-
+  
       const formData = new FormData(this);
       formData.append("aid", aid);
       const keyValuePairs = [];
       for (const pair of formData.entries()) {
         keyValuePairs.push(pair[0] + "=" + encodeURIComponent(pair[1]));
       }
-
+  
       fetch("https://api.ipify.org?format=json")
         .then(res => res.json())
         .then(data => {
           keyValuePairs.push("ip=" + data.ip);
           const formDataString = keyValuePairs.join("&");
-
+  
           return fetch("https://script.google.com/macros/s/AKfycbxoH1FqaQea8DQLs35ZnlZxZTtxYvEri4-SYI4sybWZbp9DUlsT3GSUAvQ85n8PhZcZ/exec", {
             redirect: "follow",
             method: "POST",
@@ -222,11 +235,6 @@
           document.getElementById("message").style.color = "white";
           document.getElementById("message").style.display = "block";
         });
-    });
-    document.getElementById("logoutBtn").addEventListener("click", function(e) {
-      e.preventDefault(); // ป้องกันการ reload หน้า
-      localStorage.clear(); // ลบข้อมูลทั้งหมดจาก localStorage
-      window.location.href = "/student/index.html"; // กลับไปหน้า login
     });
   </script>
 </body>
