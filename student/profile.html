@@ -128,7 +128,7 @@
     if (verifyStatus === "ยืนยันสิทธิ์เรียบร้อยแล้ว") {
       formPort.style.display = "none";
       tcasUl.innerHTML = "";
-      const selectedIndex = { u1: 0, u2: 1, u3: 2 }[selectedPortfolio];
+      const selectedIndex = { U1: 0, U2: 1, U3: 2 }[selectedPortfolio];
       if (selectedIndex !== undefined && tcasData[selectedIndex]) {
         const item = tcasData[selectedIndex];
         const li = document.createElement("li");
