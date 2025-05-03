@@ -121,3 +121,12 @@ li {
 .date {
     color: #27ae60;
 }
+
+ul.r-1 {
+    background: #fff8ea;
+    padding: 24px;
+}
+
+ul.r-1 li{
+    margin: 0 0 10px 0;
+}
