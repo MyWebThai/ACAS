@@ -130,3 +130,25 @@ ul.r-1 {
 ul.r-1 li{
     margin: 0 0 10px 0;
 }
+
+.r-counter {
+    color: #ea0c42;
+    display: flex;
+    justify-content: center;
+    font-family: "kvl", sans-serif;
+    line-height: 1.1;
+    padding-left: 0;
+    margin: 12px 0;
+    font-size: 1.125em;
+}
+
+.r-counter li {
+    list-style: none;
+    text-align: center;
+    padding: 0 6px;
+}
+
+.r-counter b {
+    font-size: 1.7em;
+    display: block;
+}
