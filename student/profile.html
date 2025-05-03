@@ -126,45 +126,36 @@
     const formPort = document.getElementById("form-port");
   
     if (verifyStatus === "ยืนยันสิทธิ์เรียบร้อยแล้ว") {
-      contentDiv.style.display = "none"; // ซ่อน content เดิม
-      formPort.style.display = "none"; // ซ่อนฟอร์มส่งข้อมูล
-      const selectedIndex = { u1: 0, u2: 1, u3: 2 }[selectedPortfolio];
-  
-      if (selectedIndex !== undefined && tcasData[selectedIndex]) {
-        const item = tcasData[selectedIndex];
-  
-        // สร้าง h3 ที่แสดงข้อความยืนยัน
-        const h3 = document.querySelector("h3.r-1");
-        const verifySpan = h3?.querySelector("#Verify1");
+        // ซ่อน .content และ form-port เมื่อยืนยันสิทธิ์แล้ว
+        contentDiv.style.display = "none";
+        formPort.style.display = "none";
+    
+        // ใส่ข้อความใน <span id="Verify1">
+        const verifySpan = document.getElementById("Verify1");
         if (verifySpan) {
           verifySpan.textContent = verifyStatus;
         }
-
-  
-        // สร้าง li ที่แสดงข้อมูล TCAS ที่เลือก
-        const li = document.createElement("li");
-        li.style.color = "rgb(39, 174, 96)";
-        li.innerHTML = `
-          <strong>${item.u}</strong>
-          ${item.campus || ""}<br>
-          ${item.faculty || ""}<br>
-          ${item.course || ""}<br>
-          ${item.project || ""}
-        `;
-  
-        // สร้าง ul ใหม่ใส่ li นี้
-        const newUl = document.createElement("ul");
-        newUl.className = "r-choose";
-        newUl.appendChild(li);
-  
-        // ใส่ h3 และ ul เข้า content ที่แสดงผล
-        const newContent = document.createElement("div");
-        newContent.className = "content";
-        newContent.appendChild(h3);
-        newContent.appendChild(newUl);
-  
-        // แสดงผลบนหน้า
-        document.getElementById("round").appendChild(newContent);
+    
+        // แสดงข้อมูล Portfolio ที่เลือกใน ul.r-choose
+        const selectedIndex = { u1: 0, u2: 1, u3: 2 }[selectedPortfolio];
+        if (selectedIndex !== undefined && tcasData[selectedIndex]) {
+          const item = tcasData[selectedIndex];
+    
+          const li = document.createElement("li");
+          li.style.color = "rgb(39, 174, 96)";
+          li.innerHTML = `
+            <strong>${item.u}</strong>
+            ${item.campus || ""}<br>
+            ${item.faculty || ""}<br>
+            ${item.course || ""}<br>
+            ${item.project || ""}
+          `;
+    
+          const newUl = document.createElement("ul");
+          newUl.className = "r-choose";
+          newUl.appendChild(li);
+    
+          document.getElementById("round").appendChild(newUl);
       }
     } else {
       tcasData.forEach(item => {
