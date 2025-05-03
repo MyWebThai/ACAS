@@ -22,6 +22,7 @@ input {
     line-height: 1.4;
     border-radius: 3px;
     margin-bottom: 20px;
+    height: fit-content;
 }
 
 button:hover {
@@ -100,4 +101,19 @@ center h2 {
 .small {
     font-size: .85em;
     padding-left: 0;
+}
+
+.a-row div {
+    width: calc(50% - 20px);
+}
+
+label {
+    display: flex;
+    width: 100%;
+}
+
+.required label > span:after {
+    content: "*";
+    color: #ea0c42;
+    margin: 0 2px;
 }
