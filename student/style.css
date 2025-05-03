@@ -177,3 +177,8 @@ ul#tcasChoices {
     color: #1a477f;
     margin: 4px 0;
 }
+
+ul.r-choose li {
+    cursor: pointer;
+    user-select: none;
+}
