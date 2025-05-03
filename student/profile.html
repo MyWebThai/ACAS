@@ -230,6 +230,16 @@
           document.getElementById("message").style.display = "block";
         });
     });
+
+    const verifyElement = document.getElementById("Verify1");
+    const recruitingElement = document.getElementById("recruiting");
+    
+    if (verifyElement && recruitingElement) {
+      if (verifyElement.textContent.includes("ยืนยันสิทธิ์เรียบร้อยแล้ว")) {
+        recruitingElement.style.display = "none";
+      }
+    }
+
   </script>
 </body>
 </html>
