@@ -113,12 +113,12 @@ li {
     margin: 10px 0;
 }
 
-.label {
+.r-1 .label {
     font-weight: bold;
     color: #34495e;
 }
 
-.date {
+.r-1 .date {
     color: #27ae60;
 }
 
