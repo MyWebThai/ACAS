@@ -48,6 +48,7 @@
     padding: 16px;
     border-radius: 3px;
     margin: 0 auto 16px;
+    max-width: 760px;
 }
 
 .t-box .title {
