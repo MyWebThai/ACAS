@@ -26,7 +26,7 @@ async function checkId() {
       window.location.href = "form.html";
     } else {
       // มีรหัสผ่าน → แสดงช่องรหัสผ่านและปุ่ม login, ซ่อนปุ่มตรวจสอบ
-      document.getElementById("passwordDiv").style.display = "block";
+      document.getElementById("passwordDiv").style.display = "contents";
       document.getElementById("loginBtn").style.display = "inline-block";
       document.getElementById("checkBtn").style.display = "none"; // ซ่อนปุ่มตรวจสอบ
     }
