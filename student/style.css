@@ -156,8 +156,19 @@ ul.r-1 li{
 .content {
     padding: 24px;
     background: #fff8ea;
+    text-align: center;
 }
 
 .r-choose strong {
     display: block;
+}
+
+.content>h3 {
+    color: #1a477f;
+    margin: 4px 0;
+    font-weight: bold;
+}
+
+ul#tcasChoices {
+    text-align: left;
 }
