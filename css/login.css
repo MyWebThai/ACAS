@@ -71,7 +71,7 @@ button {
 
 @media (min-width: 768px) {
     .a-row input {
-        width: 50%;
+        width: 100%;
     }
 }
 @media (min-width: 768px) {
