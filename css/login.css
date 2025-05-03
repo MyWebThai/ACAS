@@ -13,7 +13,7 @@ body { font-family: CPN, sans-serif; }
 @media (min-width: 1400px) { .container { max-width: 1320px; } }
 
 input {
-    width: -webkit-fill-available;
+    width: 100%;
     border: 2px solid #d5d5d7;
     transition: .3s ease;
     outline: none;
@@ -22,4 +22,27 @@ input {
     line-height: 1.4;
     border-radius: 3px;
     margin-bottom: 20px;
+}
+
+button:hover {
+    color: #fff;
+    background-position: 100% 0;
+}
+
+button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: .6em .9em;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+    background-image: linear-gradient(90deg, #6200ff, #ff005b 50%, #6200ff);
+    background-size: 300% 100%;
+    color: #fff;
+    font-weight: 700;
+    transition: all .4s ease-in-out;
+    outline: 0;
+    border: 0;
+    width: 100%;
 }
