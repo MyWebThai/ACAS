@@ -117,3 +117,27 @@ label {
     color: #ea0c42;
     margin: 0 2px;
 }
+
+.small li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.small li i {
+    margin-top: -2px;
+}
+
+i[class^=i-] {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-flex;
+    width: 16px;
+    min-width: 16px;
+    height: 16px;
+}
+
+.i-no {
+  background-image: url('/img/i/i-no.svg');
+}
